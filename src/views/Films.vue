@@ -1,5 +1,40 @@
 <template>
-  <div class="films">
-    <h1>This is an film page</h1>
+  <div class="films-view">
+    <h1 class="subheading">Films</h1>
+    <v-container id="film-container">
+      <v-layout row wrap>
+        <list-item
+          v-for="film in films"
+          :film="films"
+          :key="film.id"
+          :header="film.title"
+          :supplemental="'Episode ' + film.episode_id"
+          :description="film.opening_crawl"
+        />
+      </v-layout>
+    </v-container>
   </div>
 </template>
+
+<script>
+import { mapState, mapGetters } from "vuex";
+import ListItem from "../components/ListItem";
+export default {
+  name: "films-view",
+  components: { ListItem },
+  computed: {
+    ...mapGetters({
+      films: "loadedFilms",
+      filmKeys: "filmKeys"
+    })
+  },
+};
+</script>
+
+<style scoped>
+#film-container {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+}
+</style>
