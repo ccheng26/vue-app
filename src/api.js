@@ -31,8 +31,6 @@ export const handleBaseGet = async (topic, topicKey, commit, keyToSort, fetchAll
         return parseInt(splitOn[splitOn.length - 2])
       } : null)
     commit(`SAVE_${topic.toUpperCase()}`, topicData);
-    const dataKeys = Object.keys(data.results[0])
-    commit(`SAVE_${topicKey.toUpperCase()}_KEYS`, dataKeys)
   } catch (error) {
     throw new Error(`API ${error}`);
   }
