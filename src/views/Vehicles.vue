@@ -24,7 +24,7 @@ export default {
   computed: {
     ...mapState(["films", "people", "vehicles"]),
     vehicleData: function() {
-      if (this.films && this.people && this.vehicles) {
+      if (this.films.length && this.people.length && this.vehicles.length) {
         return this.vehicles.map(vehicle => {
           const { films, pilots } = vehicle;
           vehicle.pilots = Array.isArray(pilots) ? formatUrlArr(pilots, this.people) : pilots;

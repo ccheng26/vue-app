@@ -26,7 +26,7 @@ export default {
       "vehicles"
     ]),
     speciesData: function() {
-      if (this.films && this.people && this.planets && this.species) {
+      if (this.films.length && this.people.length && this.planets.length && this.species.length) {
         return this.species.map(specie => {
           const { homeworld, people, vehicles, films, starships } = specie;
           let home = findArrObjByKeyVal(this.planets, "url", homeworld);

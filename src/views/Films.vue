@@ -36,12 +36,12 @@ export default {
 
     filmData: function() {
       if (
-        this.films &&
-        this.people &&
-        this.planets &&
-        this.species &&
-        this.starships &&
-        this.vehicles
+        this.films.length &&
+        this.people.length &&
+        this.planets.length &&
+        this.species.length &&
+        this.starships.length &&
+        this.vehicles.length
       ) {
         return this.films.map(film => {
           const { planets, species, vehicles, characters, starships } = film;
