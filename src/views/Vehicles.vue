@@ -4,7 +4,7 @@
     <v-container id="vehicle-container">
       <v-layout row wrap>
         <list-item
-          v-for="vehicle in vehicles"
+          v-for="vehicle in vehicleData"
           :itemObj="vehicle"
           :key="vehicle.id"
           v-bind:all="true"
@@ -16,14 +16,23 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
+import { formatUrlArr } from "../helpers";
 import ListItem from "../components/ListItem";
 export default {
   name: "vehicles-view",
   components: { ListItem },
   computed: {
-    ...mapGetters({
-      vehicles: "loadedVehicles",
-    })
-  },
+    ...mapState(["films", "people", "vehicles"]),
+    vehicleData: function() {
+      if (this.films && this.people && this.vehicles) {
+        return this.vehicles.map(vehicle => {
+          const { films, pilots } = vehicle;
+          vehicle.pilots = Array.isArray(pilots) ? formatUrlArr(pilots, this.people) : pilots;
+          vehicle.films = Array.isArray(films) ? formatUrlArr(films, this.films, "title") : films;
+          return vehicle;
+        });
+      }
+    }
+  }
 };
 </script>

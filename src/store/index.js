@@ -23,22 +23,22 @@ export default new Vuex.Store({
   },
   actions: {
     loadFilms({ commit }) {
-      handleBaseGet('films', 'film', commit, 'episode_id')
+      handleBaseGet('films', commit, 'episode_id')
     },
     loadPlanets({ commit }) {
-      handleBaseGet('planets', 'planet', commit, 'url', true)
+      handleBaseGet('planets', commit, 'url', true)
     },
     loadSpecies({ commit }) {
-      handleBaseGet('species', 'species', commit, 'url', true)
+      handleBaseGet('species', commit, 'url', true)
     },
     loadStarships({ commit }) {
-      handleBaseGet('starships', 'starship', commit, 'url', true)
+      handleBaseGet('starships', commit, 'url', true)
     },
     loadPeople({ commit }) {
-      handleBaseGet('people', 'person', commit, 'url', true)
+      handleBaseGet('people', commit, 'url', true)
     },
     loadVehicles({ commit }) {
-      handleBaseGet('vehicles', 'vehicle', commit, 'url', true)
+      handleBaseGet('vehicles', commit, 'url', true)
     },
   },
   modules: {

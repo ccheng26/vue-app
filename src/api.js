@@ -8,7 +8,7 @@ const swapi = axios.create({
   tmeout: 1000,
 })
 
-export const handleBaseGet = async (topic, topicKey, commit, keyToSort, fetchAll = false) => {
+export const handleBaseGet = async (topic, commit, keyToSort, fetchAll = false) => {
   try {
     const response = await swapi.get(topic)
     const { data } = response

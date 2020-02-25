@@ -1,5 +1,5 @@
 <template>
-  <v-card id="list-items" class="mx-auto" max-width="350" v-bind:all="all" v-if="all">
+  <v-card id="list-items" class="mx-auto" width="350" v-bind:all="all" v-if="all">
     <v-card-text>
       <div
         class="text--primary"
@@ -7,11 +7,7 @@
         :item="value.id"
         :key="value.id"
       >{{titleCase(key)}}: {{value}}</div>
-      
     </v-card-text>
-    <!-- <v-card-actions>
-      <v-btn text color="deep-purple accent-4">More Details</v-btn>
-    </v-card-actions> -->
   </v-card>
   <v-card id="list-items" class="mx-auto" min-width="300" v-else>
     <v-list-item-title class="headline mb-1" v-bind:header="header">{{header}}</v-list-item-title>
@@ -22,6 +18,22 @@
         <v-card-text>
           <div class="text--primary" v-bind:description="description">{{description}}</div>
         </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn icon @click="show = !show">
+            <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+          </v-btn>
+        </v-card-actions>
+        <v-expand-transition>
+          <div v-show="show">
+            <v-divider></v-divider>
+            <v-card-text
+              v-for="(value, key) in additionalValues"
+              :key="value.id"
+              :item="value.id"
+            >{{titleCase(key)}}: {{value}}</v-card-text>
+          </div>
+        </v-expand-transition>
       </div>
     </v-expand-transition>
   </v-card>
@@ -36,12 +48,28 @@ export default {
     description: String,
     supplemental: String,
     all: Boolean,
-    itemObj: Object
+    itemObj: Object,
+    exclude: Array
   },
   methods: { titleCase: titleCase },
   data: () => ({
     show: false
-  })
+  }),
+  computed: {
+    additionalValues: function() {
+      let additionalValues = { ...this.itemObj };
+      if (
+        Object.keys(additionalValues) &&
+        this.exclude &&
+        this.exclude.length
+      ) {
+        for (let i in this.exclude) {
+          delete additionalValues[this.exclude[i]];
+        }
+      }
+      return additionalValues;
+    }
+  }
 };
 </script>
 
