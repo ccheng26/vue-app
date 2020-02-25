@@ -7,7 +7,6 @@
           v-for="vehicle in vehicles"
           :itemObj="vehicle"
           :key="vehicle.id"
-          :itemKeys="vehicleKeys"
           v-bind:all="true"
         />
       </v-layout>
@@ -24,7 +23,6 @@ export default {
   computed: {
     ...mapGetters({
       vehicles: "loadedVehicles",
-      vehicleKeys: "vehicleKeys"
     })
   },
 };

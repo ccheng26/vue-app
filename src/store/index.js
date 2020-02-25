@@ -7,31 +7,19 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     films: [],
-    filmKeys: [],
     planets: [],
-    planetKeys: [],
     species: [],
-    speciesKeys: [],
     starships: [],
-    starshipKeys: [],
     people: [],
-    personKeys: [],
     vehicles: [],
-    vehicleKeys: [],
   },
   mutations: {
     SAVE_FILMS: set('films'),
-    SAVE_FILM_KEYS: set('filmKeys'),
     SAVE_PLANETS: set('planets'),
-    SAVE_PLANET_KEYS: set('planetKeys'),
     SAVE_SPECIES: set('species'),
-    SAVE_SPECIES_KEYS: set('speciesKeys'),
     SAVE_STARSHIPS: set('starships'),
-    SAVE_STARSHIP_KEYS: set('starshipKeys'),
     SAVE_PEOPLE: set('people'),
-    SAVE_PERSON_KEYS: set('personKeys'),
     SAVE_VEHICLES: set('vehicles'),
-    SAVE_VEHICLE_KEYS: set('vehicleKeys'),
   },
   actions: {
     loadFilms({ commit }) {
@@ -57,16 +45,10 @@ export default new Vuex.Store({
   },
   getters: {
     loadedFilms: get('films'),
-    filmKeys: get('filmKeys'),
     loadedPlanets: get('planets'),
-    planetKeys: get('planetKeys'),
     loadedSpecies: get('species'),
-    speciesKeys: get('speciesKeys'),
     loadedStarships: get('starships'),
-    starshipKeys: get('starshipKeys'),
     loadedPeople: get('people'),
-    personKeys: get('personKeys'),
     loadedVehicles: get('vehicles'),
-    vehicleKeys: get('vehicleKeys'),
   }
 })

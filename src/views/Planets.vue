@@ -7,7 +7,6 @@
           v-for="planet in planets"
           :itemObj="planet"
           :key="planet.id"
-          :itemKeys="planetKeys"
           v-bind:all="true"
         />
       </v-layout>
@@ -24,7 +23,6 @@ export default {
   computed: {
     ...mapGetters({
       planets: "loadedPlanets",
-      planetKeys: "planetKeys"
     })
   }
 };

@@ -3,10 +3,11 @@
     <v-card-text>
       <div
         class="text--primary"
-        v-for="item in itemKeys"
-        :item="item.id"
-        :key="item.id"
-      >{{titleCase(item)}}: {{itemObj[item]}}</div>
+        v-for="(value, key) in itemObj"
+        :item="value.id"
+        :key="value.id"
+      >{{titleCase(key)}}: {{value}}</div>
+      
     </v-card-text>
     <!-- <v-card-actions>
       <v-btn text color="deep-purple accent-4">More Details</v-btn>
@@ -35,7 +36,6 @@ export default {
     description: String,
     supplemental: String,
     all: Boolean,
-    itemKeys: Array,
     itemObj: Object
   },
   methods: { titleCase: titleCase },

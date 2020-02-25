@@ -7,7 +7,6 @@
           v-for="specie in species"
           :itemObj="specie"
           :key="specie.id"
-          :itemKeys="speciesKeys"
           v-bind:all="true"
         />
       </v-layout>
@@ -24,7 +23,6 @@ export default {
   computed: {
     ...mapGetters({
       species: "loadedSpecies",
-      speciesKeys: "speciesKeys"
     })
   },
 };

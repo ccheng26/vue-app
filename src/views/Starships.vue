@@ -7,7 +7,6 @@
           v-for="starship in starships"
           :itemObj="starship"
           :key="starship.id"
-          :itemKeys="starshipKeys"
           v-bind:all="true"
         />
       </v-layout>
@@ -24,7 +23,6 @@ export default {
   computed: {
     ...mapGetters({
       starships: "loadedStarships",
-      starshipKeys: "starshipKeys"
     })
   },
 };

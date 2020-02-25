@@ -7,7 +7,6 @@
           v-for="person in people"
           :itemObj="person"
           :key="person.id"
-          :itemKeys="personKeys"
           v-bind:all="true"
         />
       </v-layout>
@@ -24,7 +23,6 @@ export default {
   computed: {
     ...mapGetters({
       people: "loadedPeople",
-      personKeys: "personKeys"
     })
   },
 };

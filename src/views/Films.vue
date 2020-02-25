@@ -25,7 +25,6 @@ export default {
   computed: {
     ...mapGetters({
       films: "loadedFilms",
-      filmKeys: "filmKeys"
     })
   },
 };
